@@ -93,9 +93,9 @@ top_users_ratings.groupby('movieId').agg({"weighted_rating": "mean"})
 recommendation_df = top_users_ratings.groupby('movieId').agg({"weighted_rating": "mean"})
 recommendation_df = recommendation_df.reset_index()
 
-recommendation_df[recommendation_df["weighted_rating"] > 3.7]
+recommendation_df[recommendation_df["weighted_rating"] > 2.9]
 
-movies_to_be_recommend = recommendation_df[recommendation_df["weighted_rating"] > 3.6].sort_values("weighted_rating", ascending=False)
+movies_to_be_recommend = recommendation_df[recommendation_df["weighted_rating"] > 2.9].sort_values("weighted_rating", ascending=False)
 
 movie = pd.read_csv('movie.csv')
 movies_to_be_recommend.merge(movie[["movieId", "title"]])
